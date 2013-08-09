@@ -38,7 +38,7 @@
               <div class="form-group">
                 <label for="text-short">Message</label>
                 <textarea name="text-short" id="text-short" class="form-control"></textarea>
-                <small>140 characters left</small>
+                <small class="char-count">140 characters left</small>
               </div>
               <div class="form-group">
                 <label for="text-long">Long message <small>Optional</small></label>
@@ -49,7 +49,6 @@
               <!-- <legend>4. Get your code!</legend> -->
               <legend>Click to copy your code.</legend>
               <div class="form-group">
-                <button class="btn btn-default" id="copy-meta">Meta Tags</button>
                 <button class="btn btn-default" id="copy-html">HTML</button>
                 <button class="btn btn-default" id="copy-js">JavaScript</button>
                 <div class="pull-right">
@@ -67,13 +66,6 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, natus, nostrum enim harum distinctio amet tenetur quas sed a nesciunt! Veniam, omnis nostrum perferendis minus incidunt porro dolore. Hic, accusamus reiciendis facere quis porro cum fugiat provident doloribus ex non.</p>
               </div>
               <div id="codeContainer" class="collapse">
-                <div class="form-group">
-                  <h4>Meta Tags</h4>
-                    <pre id="meta">
-&lt;meta property=&quot;og:url&quot; content=&quot;http://www.example.com/&quot; /&gt;
-&lt;meta property=&quot;og:title&quot; content=&quot;Example Recording Company&quot; /&gt;
-&lt;meta property=&quot;og:description&quot; content=&quot;This website is the best!&quot; /&gt;</pre>
-                </div>
                 <div class="form-group">
                   <h4>HTML</h4>
                   <pre id="html">
