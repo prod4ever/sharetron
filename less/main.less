@@ -4,10 +4,15 @@
 /* =GENERAL */
 
 .container {
-	min-width: @screen-small;
+	/* Set a fluid width, rather than snapping to each breakpoint */
 	max-width: @screen-large;
 	.box-sizing(border-box);
-	padding: 0 20px;
+}
+
+@media (min-width: @screen-small) {
+	.container {
+		padding: 0 20px;
+	}
 }
 
 label small {

@@ -1,11 +1,16 @@
 /* =GENERAL */
 .container {
-  min-width: 768px;
+  /* Set a fluid width, rather than snapping to each breakpoint */
+
   max-width: 1200px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 0 20px;
+}
+@media (min-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
 }
 label small {
   color: #999999;
