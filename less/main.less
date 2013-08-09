@@ -1,0 +1,21 @@
+@import "variables.less";
+@import "mixins.less";
+
+/* =GENERAL */
+
+.container {
+	min-width: @screen-small;
+	max-width: @screen-large;
+	.box-sizing(border-box);
+	padding: 0 20px;
+}
+
+label small {
+	color: @gray-light;
+}
+
+.page-footer {
+  padding-top: ((@line-height-computed / 2) - 1);
+  margin: (@line-height-computed * 2) 0 @line-height-computed;
+  border-top: 1px solid @page-header-border-color;
+}
