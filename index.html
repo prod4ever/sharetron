@@ -47,33 +47,20 @@
             </div>
             <div class="step">
               <!-- <legend>4. Get your code!</legend> -->
-              <legend>Click to copy your code.</legend>
-              <div class="form-group">
-                <button class="btn btn-default" id="copy-html">HTML</button>
-                <button class="btn btn-default" id="copy-js">JavaScript</button>
-                <div class="pull-right">
-                  <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#codeContainer">
-                  Show Code
-                  </button>
-                  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#codeInfo">
-                  Help                
-                  </button>
-                </div>
-              </div>
-
+              <legend>Copy your code. <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#codeInfo">Help</button></legend>
               <div id="codeInfo" class="collapse">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, fuga, animi, voluptatibus, sint harum incidunt eaque asperiores alias vel iusto ducimus dignissimos at est repudiandae explicabo placeat cupiditate doloribus consectetur commodi dicta dolores nisi quaerat. Vel, dolores, iusto quasi accusantium necessitatibus architecto nobis quo animi quis ut accusamus numquam eum!</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, natus, nostrum enim harum distinctio amet tenetur quas sed a nesciunt! Veniam, omnis nostrum perferendis minus incidunt porro dolore. Hic, accusamus reiciendis facere quis porro cum fugiat provident doloribus ex non.</p>
               </div>
-              <div id="codeContainer" class="collapse">
-                <div class="form-group">
+              <div id="codeContainer" class="row">
+                <div class="col-lg-6">
                   <h4>HTML</h4>
                   <pre id="html">
 &lt;a href=&quot;&quot;&gt;&lt;/a&gt;
 &lt;a href=&quot;&quot;&gt;&lt;/a&gt;
 &lt;a href=&quot;&quot;&gt;&lt;/a&gt;</pre>
                 </div>
-                <div class="form-group">
+                <div class="col-lg-6">
                   <h4>JavaScript</h4>
                   <pre id="js">
 doStuff();</pre>
