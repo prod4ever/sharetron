@@ -1,4 +1,43 @@
+/*@brand-primary:         #428bca;*/
+/*@brand-danger:          #d9534f;*/
+/*@input-border-focus:             #66afe9;*/
 /* =GENERAL */
+body {
+  background: #ffffff url(../img/texture-white.png);
+}
+.page-header {
+  background: #b9ffd8 url(../img/texture-green.png);
+  margin-top: 0;
+  padding-top: 15px;
+  border-bottom: 3px solid #28b290;
+  box-shadow: 0 5px 15px rgba(0, 100, 100, 0.2);
+  margin-bottom: 35px;
+}
+.page-header h1 {
+  float: left;
+}
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  color: #b22316;
+  font-size: 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+h2,
+h3,
+h4,
+legend,
+.tagline {
+  font-family: 'Orbitron', sans-serif;
+  color: #28b290;
+}
+.tagline {
+  font-size: 18px;
+  float: right;
+  margin-top: 37px;
+  /*color: @gray-light;*/
+
+}
 .container {
   /* Set a fluid width, rather than snapping to each breakpoint */
 
@@ -28,4 +67,12 @@ pre {
 .has-error small {
   font-weight: bold;
   color: #b94a48;
+}
+/* =FOOTER */
+.warning {
+  color: #999999;
+  font-size: 12px;
+}
+.credit {
+  float: right;
 }
