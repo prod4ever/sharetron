@@ -14,17 +14,20 @@ $(function() {
 			html : _.template( $('#tpl-email-html').text() )
 		}
 	},
-	content = {
-		networks : [],
-		url : 'http://www.google.com/',
-		shortMessage : 'Hello!',
-		longMessage : 'Hello, everyone!'
-	};
+		content = {
+			networks : [],
+			url : 'http://www.google.com/',
+			shortMessage : 'Hello!',
+			longMessage : 'Hello, everyone!'
+		},
+		$codeHtml = $('#code-html'),
+		$codeJs = $('#code-js'),
+		$url = $('#url'),
+		$textShort = $('#text-short'),
+		$textLong = $('#text-long');
 
-	function outputCode(networkItem) {
-		var $codeHtml = $('#code-html'),
-			$codeJs = $('#code-js'),
-			codeHtmlText = $codeHtml.text(),
+	function renderNetworkCode(networkItem) {
+		var codeHtmlText = $codeHtml.text(),
 			codeJsText = $codeJs.text();
 
 		codeHtmlText += networkItem.html(content);
@@ -34,10 +37,27 @@ $(function() {
 		$codeJs.text(codeJsText);
 	}
 
-	// Render
-	$('#code-js').text('');
-	$('#code-html').text('');
-	_.each(networks, outputCode);
+	function updateCode() {
+		$codeHtml.text('');
+		$codeJs.text('');
+		_.each(networks, renderNetworkCode);
+	}
+
+	function getData() {
+		// TODO: URL encode
+		content.url = $url.val();
+		content.shortMessage = $textShort.val();
+		content.longMessage = $textLong.val();
+	}
+
+	// Get data and update code when page first loads
+	getData();
+	updateCode();
+	
+	$('input, textarea').on('keyup', function() {
+		getData();
+		updateCode();
+	});
 
 	// networks.facebook.js.template = _.template(networks.facebook.js.string);
 	// console.log(networks.facebook.js.template({url : "ryan"}) );
