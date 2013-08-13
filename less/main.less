@@ -3,6 +3,49 @@
 
 /* =GENERAL */
 
+body {
+	background: #fff url(../img/texture-white.png);
+}
+
+.page-header {
+	background: @green-light url(../img/texture-green.png);
+	margin-top: 0;
+	padding-top: 15px;
+	border-bottom: 3px solid @green;
+	box-shadow: 0 5px 15px rgba(0,100,100,.2);
+	margin-bottom: 35px;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+h1 {
+	font-family: 'Orbitron', sans-serif;
+	color: @red;
+	font-size: 40px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+h2, h3, h4, legend, .tagline {
+	font-family: 'Orbitron', sans-serif;
+	color: @green;
+}
+
+.tagline {
+	font-size: 18px;
+	margin-top: 37px;
+}
+
+@media (min-width: 800px) {
+	.tagline {
+		float: right;
+	}
+
+	.page-header h1 {
+		float: left;
+	}
+}
+
 .container {
 	/* Set a fluid width, rather than snapping to each breakpoint */
 	max-width: @screen-large;
@@ -34,4 +77,15 @@ pre {
 .has-error small {
 	font-weight: bold;
 	color: @state-danger-text;
+}
+
+/* =FOOTER */
+
+.warning {
+	color: @gray-light;
+	font-size: 12px;
+}
+
+.credit {
+	float: right;
 }

@@ -2,6 +2,13 @@
 // Variables
 // --------------------------------------------------
 
+// Brand
+// --------------------------------------------------
+
+@green: #28B290;
+@red: #B22316;
+@red-light: #FF6152;
+@green-light: #b9ffd8;
 
 // Global values
 // --------------------------------------------------
@@ -18,10 +25,12 @@
 // Brand colors
 // -------------------------
 
-@brand-primary:         #428bca;
+@brand-primary: @red;
+/*@brand-primary:         #428bca;*/
 @brand-success:         #5cb85c;
 @brand-warning:         #f0ad4e;
-@brand-danger:          #d9534f;
+@brand-danger:          @red;
+/*@brand-danger:          #d9534f;*/
 @brand-info:            #5bc0de;
 
 // Scaffolding
@@ -135,7 +144,8 @@
 
 @input-border:                   #ccc;
 @input-border-radius:            @border-radius-base;
-@input-border-focus:             #66afe9;
+@input-border-focus:             @green;
+/*@input-border-focus:             #66afe9;*/
 
 @input-color-placeholder:        @gray-light;
 

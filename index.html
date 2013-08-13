@@ -3,30 +3,32 @@
   <head>
     <title>Sharetron</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
+    <link href='http://fonts.googleapis.com/css?family=Orbitron:400,700' rel='stylesheet' type='text/css'>
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <link href="css/main.css" rel="stylesheet" media="screen">
   </head>
   <body>
-    
+    <header class="page-header">
+      <div class="container">
+        <h1>Sharetron</h1>
+        <p class="tagline">Custom share links for the atomic age</p>
+      </div>
+    </header>
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <header class="page-header">
-            <h1>Sharetron <small>custom share links</small></h1>
-          </header>
-          <form action="">
+          
+          <form>
             <div class="step">
-              <legend>Where</legend>
-              <!-- <legend>1. Pick Networks</legend> -->
+              <label for="">Networks</label>
               <div class="form-group">
                 <label class="checkbox-inline"><input type="checkbox" name="network" id="network-twitter" value="facebook" checked>Facebook</label>
+                <label class="checkbox-inline"><input type="checkbox" name="network" id="network-twitter" value="googlePlus" checked>Google+</label>
                 <label class="checkbox-inline"><input type="checkbox" name="network" id="network-facebook" value="twitter" checked>Twitter</label>
                 <label class="checkbox-inline"><input type="checkbox" name="network" id="network-email" value="email" checked>Email</label>
               </div>
             </div>
             <div class="step">
-              <legend>What</legend>
               <!-- <legend>2. Enter URL</legend> -->
               <div class="form-group">
                 <label for="url">URL <!-- <small>Leave this blank to share the current page</small> --></label>
@@ -49,10 +51,10 @@
             </div>
             <div class="step">
               <!-- <legend>4. Get your code!</legend> -->
-              <legend>Copy your code. <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#codeInfo">Help</button></legend>
+              <legend>The Code <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#codeInfo">Help</button></legend>
               <div id="codeInfo" class="collapse">
-                <p>Paste the HTML where you'd like the share buttons to appear.</p>
-                <p>Paste the JavaScript into a .js file, or into a &lt;script&gt; tag.</p>
+                <p>Paste the HTML where you'd like the share buttons to appear. Paste the JavaScript into a .js file, or into a &lt;script&gt; tag.</p>
+                <p>Facebook, Google Plus, and some other networks don't allow developers to set a default share message. For these networks, only the URL will be shared.</p>
               </div>
               <div id="codeContainer">
                 <h4>HTML</h4>
@@ -63,8 +65,9 @@
             </div>
           </form>
           <footer class="page-footer">
+            <p class="warning">Sharetron is a tool for easily creating custom share links, which you can then style as you'd like to. It is a work in progress and may contain bugs. Sharetron is not yet ready for production use. Sharetron may become sentient and enslave humanity. By using Sharetron, you agree to accept any risks associated with its use.</p>
             <a href="https://github.com/prod4ever/sharetron">Source on GitHub</a>
-            <a href="http://www.iconinteractive.com/" class="pull-right">Made with love in Boston by PROD+ICON</a>
+            <a href="http://www.iconinteractive.com/" class="credit">Made with love in Boston by PROD+ICON</a>
           </footer>
         </div><!-- / .col-12 -->
       </div><!-- / .row -->
@@ -79,7 +82,7 @@
 
     <script type="text/template" id="tpl-fb-html">
 <a href="https://www.facebook.com/sharer/sharer.php?u=<%= url %>" target="_blank">
-  Share
+  Share on Facebook
 </a>
     </script>
 
@@ -91,6 +94,12 @@
     <script type="text/template" id="tpl-twitter-js">
 // Open intents in a pop-up - https://dev.twitter.com/docs/intents
 !function(){function g(g){g=g||window.event;for(var i,j,k,h=g.target||g.srcElement;h&&"a"!==h.nodeName.toLowerCase();)h=h.parentNode;h&&"a"===h.nodeName.toLowerCase()&&h.href&&(i=h.href.match(a),i&&(j=Math.round(f/2-c/2),k=0,e>d&&(k=Math.round(e/2-d/2)),window.open(h.href,"intent",b+",width="+c+",height="+d+",left="+j+",top="+k),g.returnValue=!1,g.preventDefault&&g.preventDefault()))}if(!window.__twitterIntentHandler){var a=/twitter\.com(\:\d{2,4})?\/intent\/(\w+)/,b="scrollbars=yes,resizable=yes,toolbar=no,location=yes",c=550,d=420,e=screen.height,f=screen.width;document.addEventListener?document.addEventListener("click",g,!1):document.attachEvent&&document.attachEvent("onclick",g),window.__twitterIntentHandler=!0}}();
+    </script>
+
+    <script type="text/template" id="tpl-googlePlus-html">
+<a href="https://plus.google.com/share?url=<%= url %>">
+  Share on Google +
+</a>
     </script>
 
 
