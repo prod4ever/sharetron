@@ -26,8 +26,9 @@ $(function() {
 		$textShort = $('#text-short'),
 		$textLong = $('#text-long');
 
-	function renderNetworkCode(networkItem) {
-		var codeHtmlText = $codeHtml.text(),
+	function renderNetworkCode(networkString) {
+		var networkItem = networks[networkString],
+			codeHtmlText = $codeHtml.text(),
 			codeJsText = $codeJs.text();
 
 		codeHtmlText += networkItem.html(content);
@@ -40,21 +41,26 @@ $(function() {
 	function updateCode() {
 		$codeHtml.text('');
 		$codeJs.text('');
-		_.each(networks, renderNetworkCode);
+		_.each(content.networks, renderNetworkCode);
 	}
 
 	function getData() {
-		// TODO: URL encode
-		content.url = $url.val();
-		content.shortMessage = $textShort.val();
-		content.longMessage = $textLong.val();
+		var $selectedNetworks = $('input[name=network]:checked');
+		content.networks = [];
+		$selectedNetworks.each(function() {
+			content.networks.push( $(this).val() );
+		});
+
+		content.url = encodeURI( $url.val() );
+		content.shortMessage = encodeURI( $textShort.val() );
+		content.longMessage = encodeURI( $textLong.val() );
 	}
 
 	// Get data and update code when page first loads
 	getData();
 	updateCode();
 	
-	$('input, textarea').on('keyup', function() {
+	$('input, textarea').on('change', function() {
 		getData();
 		updateCode();
 	});

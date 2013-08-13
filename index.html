@@ -20,49 +20,45 @@
               <legend>Where</legend>
               <!-- <legend>1. Pick Networks</legend> -->
               <div class="form-group">
-                <label class="checkbox-inline"><input type="checkbox" name="network" id="network-twitter" value="facebook">Facebook</label>
-                <label class="checkbox-inline"><input type="checkbox" name="network" id="network-facebook" value="twitter">Twitter</label>
-                <label class="checkbox-inline"><input type="checkbox" name="network" id="network-email" value="email">Email</label>
+                <label class="checkbox-inline"><input type="checkbox" name="network" id="network-twitter" value="facebook" checked>Facebook</label>
+                <label class="checkbox-inline"><input type="checkbox" name="network" id="network-facebook" value="twitter" checked>Twitter</label>
+                <label class="checkbox-inline"><input type="checkbox" name="network" id="network-email" value="email" checked>Email</label>
               </div>
             </div>
             <div class="step">
               <legend>What</legend>
               <!-- <legend>2. Enter URL</legend> -->
               <div class="form-group">
-                <label for="url">URL <small>Leave this blank to share the current page</small></label>
+                <label for="url">URL <!-- <small>Leave this blank to share the current page</small> --></label>
                 <input type="text" id="url" name="url" class="form-control" value="http://www.example.com/">
               </div>
             </div>
             <div class="step">
               <!-- <legend>3. Enter Message</legend> -->
-              <div class="form-group">
-                <label for="text-short">Short Message</label>
-                <textarea name="text-short" id="text-short" class="form-control">
-Check it out!</textarea>
-                <small id="char-count">## characters left</small>
-              </div>
-              <div class="form-group">
-                <label for="text-long">Long message <small>Optional</small></label>
-                <textarea name="text-long" id="text-long" class="form-control">
-Hey, check out this cool new website!</textarea>
+              <div class="row">
+                <div class="form-group col-lg-6">
+                  <label for="text-short">Short Message</label>
+                  <textarea name="text-short" id="text-short" class="form-control">Check it out!</textarea>
+                  <small id="char-count">## characters left</small>
+                </div>
+                <div class="form-group col-lg-6">
+                  <label for="text-long">Long message <small>Optional</small></label>
+                  <textarea name="text-long" id="text-long" class="form-control">Hey, check out this cool new website!</textarea>
+                </div>
               </div>
             </div>
             <div class="step">
               <!-- <legend>4. Get your code!</legend> -->
               <legend>Copy your code. <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#codeInfo">Help</button></legend>
               <div id="codeInfo" class="collapse">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, fuga, animi, voluptatibus, sint harum incidunt eaque asperiores alias vel iusto ducimus dignissimos at est repudiandae explicabo placeat cupiditate doloribus consectetur commodi dicta dolores nisi quaerat. Vel, dolores, iusto quasi accusantium necessitatibus architecto nobis quo animi quis ut accusamus numquam eum!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, natus, nostrum enim harum distinctio amet tenetur quas sed a nesciunt! Veniam, omnis nostrum perferendis minus incidunt porro dolore. Hic, accusamus reiciendis facere quis porro cum fugiat provident doloribus ex non.</p>
+                <p>Paste the HTML where you'd like the share buttons to appear.</p>
+                <p>Paste the JavaScript into a .js file, or into a &lt;script&gt; tag.</p>
               </div>
-              <div id="codeContainer" class="row">
-                <div class="col-lg-6">
-                  <h4>HTML</h4>
-                  <pre id="code-html"></pre>
-                </div>
-                <div class="col-lg-6">
-                  <h4>JavaScript</h4>
-                  <pre id="code-js"></pre>
-                </div>
+              <div id="codeContainer">
+                <h4>HTML</h4>
+                <pre id="code-html"></pre>
+                <h4>JavaScript</h4>
+                <pre id="code-js"></pre>
               </div>
             </div>
           </form>
