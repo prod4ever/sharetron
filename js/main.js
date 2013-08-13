@@ -60,7 +60,7 @@ $(function() {
 	getData();
 	updateCode();
 	
-	$('input, textarea').on('change', function() {
+	$('input, textarea').on('keyup change', function() {
 		getData();
 		updateCode();
 	});
