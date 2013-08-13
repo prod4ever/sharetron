@@ -24,7 +24,11 @@ $(function() {
 		$codeJs = $('#code-js'),
 		$url = $('#url'),
 		$textShort = $('#text-short'),
-		$textLong = $('#text-long');
+		$textLong = $('#text-long'),
+		$charsLeft = $('#charsLeft'),
+		$charsText = $('#charsText'),
+		$textShortArea = $('#text-short-area'),
+		textShortMax = 118; // 140 chars - 22 char of shortened link
 
 	function renderNetworkCode(networkString) {
 		var networkItem = networks[networkString],
@@ -45,7 +49,8 @@ $(function() {
 	}
 
 	function getData() {
-		var $selectedNetworks = $('input[name=network]:checked');
+		var $selectedNetworks = $('input[name=network]:checked'),
+			numCharsLeft;
 		content.networks = [];
 		$selectedNetworks.each(function() {
 			content.networks.push( $(this).val() );
@@ -54,6 +59,18 @@ $(function() {
 		content.url = encodeURI( $url.val() );
 		content.shortMessage = encodeURI( $textShort.val() );
 		content.longMessage = encodeURI( $textLong.val() );
+		numCharsLeft = textShortMax - content.shortMessage.length;
+		$charsLeft.text( numCharsLeft );
+		if (numCharsLeft < 0) {
+			$textShortArea.addClass('has-error');
+		} else {
+			$textShortArea.removeClass('has-error');
+		}
+		if (numCharsLeft === 1) {
+			$charsText.text('character');
+		} else {
+			$charsText.text('characters');
+		}
 	}
 
 	// Get data and update code when page first loads
