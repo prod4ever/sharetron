@@ -12,6 +12,10 @@ $(function() {
 		'email' : {
 			js : function () { return ''; }, // No JS for email
 			html : _.template( $('#tpl-email-html').text() )
+		},
+		'googlePlus' : {
+			js : _.template( $('#tpl-googlePlus-js').text() ), // TODO: create this template
+			html : _.template( $('#tpl-googlePlus-html').text() )
 		}
 	},
 		content = {
