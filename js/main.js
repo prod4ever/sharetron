@@ -24,10 +24,14 @@ $(function() {
 		$codeJs = $('#code-js'),
 		$url = $('#url'),
 		$textShort = $('#text-short'),
-		$textLong = $('#text-long');
+		$textLong = $('#text-long'),
+		$charsLeft = $('#charsLeft'),
+		$textShortArea = $('#text-short-area'),
+		textShortMax = 118; // 140 chars - 22 char of shortened link
 
-	function renderNetworkCode(networkItem) {
-		var codeHtmlText = $codeHtml.text(),
+	function renderNetworkCode(networkString) {
+		var networkItem = networks[networkString],
+			codeHtmlText = $codeHtml.text(),
 			codeJsText = $codeJs.text();
 
 		codeHtmlText += networkItem.html(content);
@@ -40,21 +44,34 @@ $(function() {
 	function updateCode() {
 		$codeHtml.text('');
 		$codeJs.text('');
-		_.each(networks, renderNetworkCode);
+		_.each(content.networks, renderNetworkCode);
 	}
 
 	function getData() {
-		// TODO: URL encode
-		content.url = $url.val();
-		content.shortMessage = $textShort.val();
-		content.longMessage = $textLong.val();
+		var $selectedNetworks = $('input[name=network]:checked'),
+			numCharsLeft;
+		content.networks = [];
+		$selectedNetworks.each(function() {
+			content.networks.push( $(this).val() );
+		});
+
+		content.url = encodeURI( $url.val() );
+		content.shortMessage = encodeURI( $textShort.val() );
+		content.longMessage = encodeURI( $textLong.val() );
+		numCharsLeft = textShortMax - content.shortMessage.length;
+		$charsLeft.text( numCharsLeft );
+		if (numCharsLeft < 0) {
+			$textShortArea.addClass('has-error');
+		} else {
+			$textShortArea.removeClass('has-error');
+		}
 	}
 
 	// Get data and update code when page first loads
 	getData();
 	updateCode();
 	
-	$('input, textarea').on('keyup', function() {
+	$('input, textarea').on('keyup change', function() {
 		getData();
 		updateCode();
 	});
