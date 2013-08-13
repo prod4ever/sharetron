@@ -38,7 +38,7 @@
               <div class="form-group">
                 <label for="text-short">Short Message</label>
                 <textarea name="text-short" id="text-short" class="form-control"></textarea>
-                <small class="char-count">140 characters left</small>
+                <small id="char-count">## characters left</small>
               </div>
               <div class="form-group">
                 <label for="text-long">Long message <small>Optional</small></label>
@@ -55,14 +55,14 @@
               <div id="codeContainer" class="row">
                 <div class="col-lg-6">
                   <h4>HTML</h4>
-                  <pre id="html">
+                  <pre id="code-html">
 &lt;a href=&quot;&quot;&gt;&lt;/a&gt;
 &lt;a href=&quot;&quot;&gt;&lt;/a&gt;
 &lt;a href=&quot;&quot;&gt;&lt;/a&gt;</pre>
                 </div>
                 <div class="col-lg-6">
                   <h4>JavaScript</h4>
-                  <pre id="js">
+                  <pre id="code-js">
 doStuff();</pre>
                 </div>
               </div>
@@ -75,6 +75,31 @@ doStuff();</pre>
         </div><!-- / .col-12 -->
       </div><!-- / .row -->
     </div>
+    <!-- TEMPLATES -->
+
+    <script type="text/template" id="tpl-email-html">
+<a href="mailto:?subject=<%= shortMessage %>&amp;body=<%= longMessage %>%0d%0<%= url %>">
+  Email
+</a>
+    </script>
+
+    <script type="text/template" id="tpl-fb-html">
+<a href="https://www.facebook.com/sharer/sharer.php?u=<%= url %>" target="_blank">
+  Share
+</a>
+    </script>
+
+    <script type="text/template" id="tpl-twitter-html">
+<a href="https://twitter.com/intent/tweet?url=<%= url %>&text=<%= shortMessage %>">
+  Tweet
+</a>
+    </script>
+    <script type="text/template" id="tpl-twitter-js">
+// Open intents in a pop-up - https://dev.twitter.com/docs/intents
+!function(){function g(g){g=g||window.event;for(var i,j,k,h=g.target||g.srcElement;h&&"a"!==h.nodeName.toLowerCase();)h=h.parentNode;h&&"a"===h.nodeName.toLowerCase()&&h.href&&(i=h.href.match(a),i&&(j=Math.round(f/2-c/2),k=0,e>d&&(k=Math.round(e/2-d/2)),window.open(h.href,"intent",b+",width="+c+",height="+d+",left="+j+",top="+k),g.returnValue=!1,g.preventDefault&&g.preventDefault()))}if(!window.__twitterIntentHandler){var a=/twitter\.com(\:\d{2,4})?\/intent\/(\w+)/,b="scrollbars=yes,resizable=yes,toolbar=no,location=yes",c=550,d=420,e=screen.height,f=screen.width;document.addEventListener?document.addEventListener("click",g,!1):document.attachEvent&&document.attachEvent("onclick",g),window.__twitterIntentHandler=!0}}();
+    </script>
+
+
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="js/underscore-min.js"></script>
     <script src="js/bootstrap.min.js"></script>

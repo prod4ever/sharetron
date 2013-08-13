@@ -2,55 +2,42 @@ $(function() {
 	"use strict";
 	var networks = {
 		'facebook' : {
-			js : {
-				string : 'Facebook JS: <%= url %>',
-				template : function() {}
-			},
-			html : {
-				string : 'Facebook HTML: <%= url %>',
-				template : function() {}
-			}
+			js : _.template( $('#tpl-fb-js').text() ), // TODO: create this template
+			html : _.template( $('#tpl-fb-html').text() )
 		},
 		'twitter' : {
-			js : {
-				string : 'Twitter JS: <%= url %>',
-				template : function() {}
-			},
-			html : {
-				string : 'Twitter HTML: <%= url %>',
-				template : function() {}
-			}
+			js : _.template( $('#tpl-twitter-js').text() ),
+			html : _.template( $('#tpl-twitter-html').text() )
 		},
 		'email' : {
-			js : {
-				string : '',
-				template : function() {}
-			},
-			html : {
-				string : '<a href="mailto:?subject=<%- shortMessage %>&body=<%- longMessage %>\n\n<%= url %>">Email</a>',
-				template : function() {}
-			}
+			js : function () { return ''; }, // No JS for email
+			html : _.template( $('#tpl-email-html').text() )
 		}
 	},
 	content = {
 		networks : [],
-		url : '',
-		shortMessage : '',
-		longMessage : ''
+		url : 'http://www.google.com/',
+		shortMessage : 'Hello!',
+		longMessage : 'Hello, everyone!'
 	};
 
-	function initNetwork(networkItem) {
-		// Create templates for JavaScript and HTML.
-		networkItem.js.template = _.template(networkItem.js.string);
-		networkItem.html.template = _.template(networkItem.html.string);
-		console.log(networkItem.html.template({
-			url : "http://www.google.com/",
-			shortMessage : "Hello!",
-			longMessage : "Hello everyone!"
-		}));
+	function outputCode(networkItem) {
+		var $codeHtml = $('#code-html'),
+			$codeJs = $('#code-js'),
+			codeHtmlText = $codeHtml.text(),
+			codeJsText = $codeJs.text();
+
+		codeHtmlText += networkItem.html(content);
+		codeJsText += networkItem.js(content);
+
+		$codeHtml.text(codeHtmlText);
+		$codeJs.text(codeJsText);
 	}
 
-	_.each(networks, initNetwork);
+	// Render
+	$('#code-js').text('');
+	$('#code-html').text('');
+	_.each(networks, outputCode);
 
 	// networks.facebook.js.template = _.template(networks.facebook.js.string);
 	// console.log(networks.facebook.js.template({url : "ryan"}) );
