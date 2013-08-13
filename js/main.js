@@ -26,7 +26,6 @@ $(function() {
 		$textShort = $('#text-short'),
 		$textLong = $('#text-long'),
 		$charsLeft = $('#charsLeft'),
-		$charsText = $('#charsText'),
 		$textShortArea = $('#text-short-area'),
 		textShortMax = 118; // 140 chars - 22 char of shortened link
 
@@ -65,11 +64,6 @@ $(function() {
 			$textShortArea.addClass('has-error');
 		} else {
 			$textShortArea.removeClass('has-error');
-		}
-		if (numCharsLeft === 1) {
-			$charsText.text('character');
-		} else {
-			$charsText.text('characters');
 		}
 	}
 
