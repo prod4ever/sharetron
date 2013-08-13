@@ -20,9 +20,9 @@
               <legend>Where</legend>
               <!-- <legend>1. Pick Networks</legend> -->
               <div class="form-group">
-                <label class="checkbox-inline"><input type="checkbox" id="network-twitter">Facebook</label>
-                <label class="checkbox-inline"><input type="checkbox" id="network-facebook">Twitter</label>
-                <label class="checkbox-inline"><input type="checkbox" id="network-email">Email</label>
+                <label class="checkbox-inline"><input type="checkbox" name="network" id="network-twitter" value="facebook">Facebook</label>
+                <label class="checkbox-inline"><input type="checkbox" name="network" id="network-facebook" value="twitter">Twitter</label>
+                <label class="checkbox-inline"><input type="checkbox" name="network" id="network-email" value="email">Email</label>
               </div>
             </div>
             <div class="step">
@@ -36,7 +36,7 @@
             <div class="step">
               <!-- <legend>3. Enter Message</legend> -->
               <div class="form-group">
-                <label for="text-short">Message</label>
+                <label for="text-short">Short Message</label>
                 <textarea name="text-short" id="text-short" class="form-control"></textarea>
                 <small class="char-count">140 characters left</small>
               </div>
@@ -76,6 +76,7 @@ doStuff();</pre>
       </div><!-- / .row -->
     </div>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="js/underscore-min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
 
