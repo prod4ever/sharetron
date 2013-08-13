@@ -16,9 +16,9 @@ $(function() {
 	},
 		content = {
 			networks : [],
-			url : 'http://www.google.com/',
-			shortMessage : 'Hello!',
-			longMessage : 'Hello, everyone!'
+			url : '',
+			shortMessage : '',
+			longMessage : ''
 		},
 		$codeHtml = $('#code-html'),
 		$codeJs = $('#code-js'),
