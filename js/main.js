@@ -1,23 +1,23 @@
 $(function() {
 	"use strict";
 	var networks = {
-		'facebook' : {
-			js : _.template( $('#tpl-fb-js').text() ), // TODO: create this template
-			html : _.template( $('#tpl-fb-html').text() )
+			'facebook' : {
+				js : _.template( $('#tpl-fb-js').text() ), // TODO: create this template
+				html : _.template( $('#tpl-fb-html').text() )
+			},
+			'twitter' : {
+				js : _.template( $('#tpl-twitter-js').text() ),
+				html : _.template( $('#tpl-twitter-html').text() )
+			},
+			'email' : {
+				js : function () { return ''; }, // No JS for email
+				html : _.template( $('#tpl-email-html').text() )
+			},
+			'googlePlus' : {
+				js : _.template( $('#tpl-googlePlus-js').text() ), // TODO: create this template
+				html : _.template( $('#tpl-googlePlus-html').text() )
+			}
 		},
-		'twitter' : {
-			js : _.template( $('#tpl-twitter-js').text() ),
-			html : _.template( $('#tpl-twitter-html').text() )
-		},
-		'email' : {
-			js : function () { return ''; }, // No JS for email
-			html : _.template( $('#tpl-email-html').text() )
-		},
-		'googlePlus' : {
-			js : _.template( $('#tpl-googlePlus-js').text() ), // TODO: create this template
-			html : _.template( $('#tpl-googlePlus-html').text() )
-		}
-	},
 		content = {
 			networks : [],
 			url : '',
@@ -71,15 +71,16 @@ $(function() {
 		}
 	}
 
-	// Get data and update code when page first loads
-	getData();
-	updateCode();
-	
-	$('input, textarea').on('keyup change', function() {
+	function refresh() {
 		getData();
 		updateCode();
-	});
+	}
 
-	// networks.facebook.js.template = _.template(networks.facebook.js.string);
-	// console.log(networks.facebook.js.template({url : "ryan"}) );
+	// Get data and update code when page first loads
+	refresh();
+	
+	$('textarea').on('keyup change', function() {
+		// TODO: Avoid running this code twice.
+		refresh();
+	});
 });
