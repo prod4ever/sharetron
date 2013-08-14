@@ -45,12 +45,6 @@ $(function() {
 		$codeJs.text(codeJsText);
 	}
 
-	function updateCode() {
-		$codeHtml.text('');
-		$codeJs.text('');
-		_.each(content.networks, renderNetworkCode);
-	}
-
 	function getData() {
 		var $selectedNetworks = $('input[name=network]:checked'),
 			numCharsLeft;
@@ -73,7 +67,9 @@ $(function() {
 
 	function refresh() {
 		getData();
-		updateCode();
+		$codeHtml.text('');
+		$codeJs.text('');
+		_.each(content.networks, renderNetworkCode);
 	}
 
 	// Get data and update code when page first loads
