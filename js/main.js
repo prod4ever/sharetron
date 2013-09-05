@@ -75,7 +75,7 @@ $(function() {
 	// Get data and update code when page first loads
 	refresh();
 	
-	$('textarea').on('keyup change', function() {
+	$('textarea, input').on('keyup change', function() {
 		// TODO: Avoid running this code twice.
 		refresh();
 	});
